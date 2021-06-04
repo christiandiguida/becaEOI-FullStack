@@ -1,0 +1,19 @@
+package com.chris.programacionFuncional;
+
+public class Usuario {
+
+    private int id;
+    private String nombre;
+    privatedouble sueldo;
+
+    public Usuario() {
+    }
+
+    public Usuario(int id, String nombre, double sueldo) {
+	super();
+	this.id = id;
+	this.nombre = nombre;
+	this.sueldo = sueldo;
+    }
+
+}

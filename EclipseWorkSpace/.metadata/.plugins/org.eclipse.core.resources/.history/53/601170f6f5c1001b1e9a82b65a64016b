@@ -1,0 +1,24 @@
+package com.chris.ejerciciosGenerales.utilidades;
+
+public class MathUtils {
+
+    public static void sonAmigos(int numA, int numB) {
+	int sumA = 0, sumB = 0;
+	for (int i = 1; i <= (numA / 2); i++) {
+	    if (numA % i == 0) {
+		sumA += i;
+	    }
+	}
+
+	for (int i = 1; i <= (numB / 2); i++) {
+	    if (numB % i == 0) {
+
+		sumB += i;
+	    }
+	}
+	return (sumA == numB && sumB == numA)? true:false;
+	   
+
+    }
+
+}

@@ -1,0 +1,13 @@
+package com.chris.programacionFuncional;
+
+public class Usuario {
+
+    int id;
+    String nombre;
+    double sueldo;
+
+    public Usuario(int id, String nombre, double sueldo) {
+
+    }
+
+}

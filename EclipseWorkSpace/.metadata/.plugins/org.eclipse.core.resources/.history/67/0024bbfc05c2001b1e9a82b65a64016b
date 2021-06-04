@@ -1,0 +1,8 @@
+package com.chris.programacionFuncional;
+
+public class App {
+    public static void main(String[] args) {
+	EjemplosProgramacionFuncional.setDown();
+	EjemplosProgramacionFuncional.eForEach();
+    }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.function.Function"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.css.Counter"/>
+    <fullyQualifiedTypeName name="test.Dimensions"/>
+    <fullyQualifiedTypeName name="test.Monitor"/>
+    <fullyQualifiedTypeName name="test.Resolution"/>
+    <fullyQualifiedTypeName name="test.Motherboard"/>
+    <fullyQualifiedTypeName name="test.Ceiling"/>
+    <fullyQualifiedTypeName name="test.Player"/>
+    <fullyQualifiedTypeName name="test.RealPlayer"/>
+    <fullyQualifiedTypeName name="com.chris.ejemplo27_05.App"/>
+    <fullyQualifiedTypeName name="javax.crypto.SealedObject"/>
+    <fullyQualifiedTypeName name="otroPaquete.SegundaClase"/>
+    <fullyQualifiedTypeName name="com.chris.ejemplo27_05.TerceraClase"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.Parser"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.oops.VirtualCallTypeData"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
+    <fullyQualifiedTypeName name="com.sun.jna.platform.FileUtils"/>
+    <fullyQualifiedTypeName name="sun.font.CreatedFontTracker"/>
+    <fullyQualifiedTypeName name="java.nio.file.Files"/>
+    <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
+    <fullyQualifiedTypeName name="java.nio.file.Paths"/>
+    <fullyQualifiedTypeName name="com.chris.ficheros.auxiliares.Ficheros"/>
+    <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="com.chris.ejerciciosGenerales.utilidades.MathUtils"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.chris.programacionFuncional.Usuario"/>
+    <fullyQualifiedTypeName name="com.chris.programacionFuncional.EjemplosProgramacionFuncional"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
+    <fullyQualifiedTypeName name="jdk.internal.misc.FileSystemOption"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+</qualifiedTypeNameHistroy>

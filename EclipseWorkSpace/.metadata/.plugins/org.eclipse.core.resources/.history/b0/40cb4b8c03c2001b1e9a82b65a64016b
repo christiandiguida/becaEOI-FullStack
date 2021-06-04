@@ -1,0 +1,9 @@
+package com.chris.programacionFuncional;
+
+public class Usuario {
+
+     String nombre;
+     double nombre;
+    
+
+}

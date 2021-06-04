@@ -1,0 +1,39 @@
+package com.chris.ejerciciosGenerales.utilidades;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MathUtils {
+
+    public static void sonAmigos(int numA, int numB) {
+	System.out.println("Insertar dos numero para comprobar si son amigos.");
+	System.out.println("Insertar el primer numero: ");
+	Scanner sc = new Scanner(System.in);
+	int sumA = 0, sumB = 0;
+	numA = sc.nextInt();
+	List<Integer> divisoresA = new ArrayList<Integer>();
+	for (int i = 1; i < numA; i++) {
+	    if (numA % i == 0) {
+		divisoresA.add(i);
+		sumA += i;
+	    }
+	}
+	System.out.println("Insertar el segundo numero: ");
+	 numB = sc.nextInt();
+	List<Integer> divisoresB = new ArrayList<Integer>();
+	for (int i = 1; i < numB; i++) {
+	    if (numB % i == 0) {
+		divisoresB.add(i);
+		sumB += i;
+	    }
+	}
+	if (sumA == numB && sumB == numA) {
+	    System.out.println(numA + " y " + numB + " son numeros amigos.");
+	} else {
+	    System.out.println(numA + " y " + numB + " no son numeros amigos.");
+	}
+
+    }
+
+}

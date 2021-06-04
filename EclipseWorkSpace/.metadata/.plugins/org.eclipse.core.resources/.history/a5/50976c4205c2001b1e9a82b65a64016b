@@ -1,0 +1,6 @@
+package com.chris.programacionFuncional;
+
+public class App {
+    public static void main(String[] args) {
+    }
+}

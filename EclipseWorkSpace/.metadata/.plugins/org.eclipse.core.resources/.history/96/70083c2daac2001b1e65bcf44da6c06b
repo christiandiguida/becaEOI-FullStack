@@ -1,0 +1,64 @@
+package com.chris.programacionFuncional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EjemplosProgramacionFuncional {
+
+    static List<Usuario> usuarios = new ArrayList<Usuario>();
+
+    public static void setUp() {
+	Usuario u1 = new Usuario(0, "Christian", 900);
+	usuarios.add(u1);
+	usuarios.add(new Usuario(1, "Usuario1", 500));
+	usuarios.add(new Usuario(2, "Usuario2", 700));
+	usuarios.add(new Usuario(3, "Usuario3", 2500));
+	usuarios.add(new Usuario(4, "Usuario4", 2500));
+	usuarios.add(new Usuario(5, "Usuario5", 2500));
+	usuarios.add(new Usuario(6, "Usuario6", 2500));
+	usuarios.add(new Usuario(7, "Usuario7", 2500));
+    }
+
+    public static void setDown() {
+	usuarios.clear();
+    }
+
+    public static void eForEach() {
+	setUp();
+	usuarios.forEach(usuario -> System.out.println(usuario));
+	setDown();
+    }
+
+    public static void eFilter() {
+	setUp();
+	// Mostrar por pantalla los elementos filtrados
+	usuarios.stream().filter(usuario -> usuario.getSueldo() > 1000).forEach(usuario -> System.out.println(usuario));
+	// crear una sub lista con los elementos filtrados
+	List<Usuario> usuariosFiltrados = usuarios.stream().filter(usuario -> usuario.getSueldo() > 1000)
+		.collect(Collectors.toList());
+	usuariosFiltrados.forEach(usuario -> {
+	    usuario.setNombre(usuario.getNombre().toUpperCase());
+	    System.out.println(usuario);
+	});
+	System.out.println(usuariosFiltrados.size());
+	setDown();
+    }
+
+    public static void eMap() {
+	setUp();
+	// Map me permite de quedarme con uno de los campos de la clase
+	List<String> nombres = usuarios.stream().map((usuario) -> usuario.getNombre()).collect(Collectors.toList());
+	nombres.forEach(usuario -> System.out.println(usuario));
+	setDown();
+    }
+
+    public static void eFind() {
+	setUp();
+	Usuario usuarioEncontrado = usuarios.stream().filter(u -> u.getNombre().equalsIgnoreCase("Usuario")).findFirst()
+		.orElse(new Usuario(1, "Nuevo Usuario", 2000));
+	System.out.println(usuarioEncontrado);
+	setDown();
+    }
+
+}
