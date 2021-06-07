@@ -35,7 +35,7 @@ public class App {
         bienvenida();
         definirProductoCliente();
         imprimirProductoCliente();
-
+        sc.close();
     }
 
     public static List<String> obtenerFicherosDirectorios(String rutaDirectorio) {
