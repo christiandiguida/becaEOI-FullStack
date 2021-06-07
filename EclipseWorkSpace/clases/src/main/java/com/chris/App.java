@@ -31,5 +31,11 @@ public class App {
         pr1.setNombre("Christian");
         System.out.println(pr1);
 
+        Profesor prof1 = new Profesor("111", 2000.95);
+        Profesor prof2 = new Profesor("111", 2000.95);
+
+        if (prof1.compareTo(prof2) == 1) {
+            System.out.println("Iguales");
+        }
     }
 }

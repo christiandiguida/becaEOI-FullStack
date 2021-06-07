@@ -1,5 +1,7 @@
 package com.chris;
 
+import java.time.LocalDate;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
@@ -18,6 +20,24 @@ public class Profesor extends Persona {
 
     public Profesor() {
 
+    }
+
+    public Profesor(String nombre, String dni, LocalDate fechaNacimiento, char sexo, String domicilio, char estadoCivil,
+            double deuda, int cuenta, String centroTrabajo, double salario) {
+        super(nombre, dni, fechaNacimiento, sexo, domicilio, estadoCivil, deuda, cuenta);
+        this.centroTrabajo = centroTrabajo;
+        this.salario = salario;
+    }
+
+    public Profesor(Persona p, String centroTrabajo, double salario) {
+        super(p);
+        this.centroTrabajo = centroTrabajo;
+        this.salario = salario;
+    }
+
+    public Profesor(String dni, double salario) {
+        super(dni);
+        this.salario = salario;
     }
 
     @Override
@@ -50,4 +70,7 @@ public class Profesor extends Persona {
         return true;
     }
 
+    public int compareTo(Profesor o) {
+        return (this.getDni().equals(o.getDni()) && this.salario == o.salario) ? 1 : 0;
+    }
 }

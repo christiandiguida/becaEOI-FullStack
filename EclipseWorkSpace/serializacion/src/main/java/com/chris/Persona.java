@@ -1,15 +1,11 @@
 package com.chris;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+public class Persona implements Serializable {
 
-@AllArgsConstructor
-@Getter
-@Setter
-public class Persona {
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private String dni;
