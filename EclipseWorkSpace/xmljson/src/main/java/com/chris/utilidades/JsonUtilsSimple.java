@@ -8,9 +8,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import com.chris.entidades.Tarea;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,25 +27,43 @@ public class JsonUtilsSimple {
         try {
             Object obj = new JSONParser().parse(new FileReader(new File(rutaCompleta)));
             JSONObject json = (JSONObject) obj;
-            String nombre = (String) json.get("nombre");
-            System.out.println(nombre);
-            String apellido = (String) json.get("apellido");
-            System.out.println(apellido);
-            Map<?, ?> domicilio = (Map<?, ?>) json.get("domicilio");
-            domicilio.entrySet().iterator();
+            // String nombre = (String) json.get("nombre");
+            // System.out.println(nombre);
+            // String apellido = (String) json.get("apellido");
+            // System.out.println(apellido);
+            // Map<?, ?> domicilio = (Map<?, ?>) json.get("domicilio");
+            // domicilio.entrySet().iterator();
 
             // Como tratar los arrays
 
             JSONArray jArray = (JSONArray) json.get("numerosTelefonos");
-            Iterator numeros = jArray.iterator();
-            numeros.forEachRemaining(e -> {
-                Iterator<Map.Entry> campos = ((Map) e).entrySet().iterator();
-                campos.forEachRemaining(campo -> System.out.println(campo.getKey() + ": " + campo.getValue()));
-            });
+            jArray.forEach(c -> System.out.println(c));
+            // Iterator numeros = jArray.iterator();
+            // numeros.forEachRemaining(e -> {
+            // Iterator<Map.Entry> campos = ((Map) e).entrySet().iterator();
+            // campos.forEachRemaining(campo -> System.out.println(campo.getKey() + ": " +
+            // campo.getValue()));
+            // });
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public static void readJsonURL(String url) {
+        try {
+            String cadena = readUrl(url);
+            JSONArray jArray = (JSONArray) new JSONParser().parse(cadena);
+            // while (jArray.iterator().hasNext()) {
+            JSONObject obj = (JSONObject) jArray.iterator().next();
+            System.out.println((String) obj.get("id"));
+
+            Tarea tarea = new Tarea();
+
+            // }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
