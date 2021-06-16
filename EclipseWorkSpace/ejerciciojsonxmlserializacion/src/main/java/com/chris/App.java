@@ -24,7 +24,10 @@ public class App {
         menu();
         createActorOne(codigoPrimerActor);
         createActorTwo(codigoSegundoActor);
+        checkCommonFilms();
+    }
 
+    public static void checkCommonFilms() {
         List<String> titlesActorOne = new ArrayList<String>();
         List<String> titlesActorTwo = new ArrayList<String>();
         actorOne.getFilmsArray().stream().map(f -> f.getTitle()).forEach(t -> {
@@ -47,7 +50,7 @@ public class App {
         codigoSegundoActor = sc.nextInt();
     }
 
-    public static List<Film> m() {
+    public static List<Film> setFilmsActor() {
         List<String> urls = new ArrayList<String>(Arrays.asList(actorOne.getFilms()));
         List<Film> films = new ArrayList<Film>();
         urls.forEach(u -> {
@@ -64,7 +67,7 @@ public class App {
         String json = JsonUtilsSimple.readUrl(urlPeople + id + "/?format=json");
         if (json != null) {
             actorOne = gson.fromJson(json, Actor.class);
-            actorOne.setFilmsArray(m());
+            actorOne.setFilmsArray(setFilmsActor());
         }
     }
 
@@ -73,7 +76,7 @@ public class App {
         String json = JsonUtilsSimple.readUrl(urlPeople + id + "/?format=json");
         if (json != null) {
             actorTwo = gson.fromJson(json, Actor.class);
-            actorTwo.setFilmsArray(m());
+            actorTwo.setFilmsArray(setFilmsActor());
         }
     }
 
