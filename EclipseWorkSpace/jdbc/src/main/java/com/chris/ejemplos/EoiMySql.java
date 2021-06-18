@@ -10,7 +10,10 @@ public class EoiMySql {
     private static final String url = "jdbc:mysql://localhost:3306/eoi";
     private static final String user = "root";
     private static final String password = "12341234";
-    private static final String sql = "SELECT * FROM eoi.oficinas where region = ? and ciudad = ?";
+    private static final String sql = "";
+    private static final Connection con = null;
+    private static final ResultSet resultSet = null;
+    private static final Statement st = null;
 
     public static void probarConexion() {
         try (Connection con = DriverManager.getConnection(url, user, password)) {
@@ -112,6 +115,14 @@ public class EoiMySql {
             }
         } catch (Exception e) {
             System.err.println(e);
+        }
+    }
+
+    public static void borrarRegistroTabla(String sql) {
+        try {
+            int numeroFIlas = st.executeUpdate(sql);
+            System.out.println((numeroFIlas > 0) ? "El delete se ejecuto correctamente" : "Nada ha sido borrado");
+        } catch (Exception e) {
         }
     }
 

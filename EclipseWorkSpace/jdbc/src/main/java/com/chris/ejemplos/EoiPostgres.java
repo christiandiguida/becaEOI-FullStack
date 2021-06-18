@@ -2,9 +2,13 @@ package com.chris.ejemplos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
+
+import utilidades.JdbcUtils;
 
 public class EoiPostgres {
 
@@ -13,7 +17,9 @@ public class EoiPostgres {
     private static final String password = "postgres";
     private static Connection con = null;
     private static Statement st = null;
-    private static final String sql = "SELECT id, nombre, descripcion, precio, fecha FROM public.evento;";
+    private static PreparedStatement ps = null;
+    private static Scanner sc = new Scanner(System.in);
+    private static String sql = "SELECT id, nombre, descripcion, precio, fecha FROM public.evento;";
 
     public static void probarConexion() {
         try (Connection con = DriverManager.getConnection(url, user, password)) {
@@ -73,6 +79,11 @@ public class EoiPostgres {
 
     }
 
+    public static String sqlInjectionTest() {
+        System.out.println("Introduzca el nombre del evento: ");
+        return sc.nextLine();
+    }
+
     public static void insertTabla(String sql) {
         try {
             st.executeUpdate(sql);
@@ -81,13 +92,84 @@ public class EoiPostgres {
         }
     }
 
+    public static void borrarRegistroTabla(String sql) {
+        try {
+            int numeroFIlas = st.executeUpdate(sql);
+            System.out.println(
+                    (numeroFIlas > 0) ? "El delete se ejecuto correctamente y se borraron " + numeroFIlas + " filas."
+                            : "Nada ha sido borrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("El metodo no ha funcionado");
+        }
+    }
+
+    public static void modificarRegistroTabla(String sql) {
+        try {
+            int numeroFIlas = st.executeUpdate(sql);
+            System.out.println((numeroFIlas > 0)
+                    ? "El update se ejecuto correctamente y se actualizaron " + numeroFIlas + " filas."
+                    : "Nada ha sido actualizado.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("El metodo no ha funcionado");
+        }
+    }
+
+    public static void modificarRegistroTablaPreparedStatement(String sql) {
+        System.out.println("Introduzca el id a modificar: ");
+        int id = Integer.parseInt(sc.nextLine());
+        System.out.println("Introduzca el nombre a modificar: ");
+        String nombre = sc.nextLine();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            System.out.println("El registro numero " + id + " ha sido modificado correctamente");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void selectBasica() {
+        try (Connection con = DriverManager.getConnection(url, user, password);
+                Statement statement = con.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(sql);
+            System.out.println(resultSet.getInt(0));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
+    public static void probarStatementGenerico() {
+        ResultSet rs = JdbcUtils.StatementGenerico("Select * from evento", con, url, user, password);
+        try {
+            while (rs.next()) {
+                System.out.println(rs.getLong("id") + " " + rs.getString("nombre") + " " + rs.getString("descripcion"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
         // probarConexion();
         // probarConexion2();
-        conexion();
-        insertTabla(
-                "insert into evento (nombre,descripcion,precio,fecha) values('fullstack','ejemplo insert',10.50,'03/04/2021') ");
+        // conexion();
+        // insertTabla(
+        // "insert into evento (nombre,descripcion,precio,fecha)
+        // values('fullstack','ejemplo insert',10.50,'03/04/2021') ");
         // selectBasica(sql);
-        desconexion();
+        // borrarRegistroTabla(sql);
+        // modificarRegistroTabla();
+        // selectBasica("Select * from evento where nombre = '" + sqlInjectionTest() +
+        // "'");
+        probarStatementGenerico();
+        // modificarRegistroTablaPreparedStatement(sql);
+        // desconexion();
+
     }
 }
