@@ -1,14 +1,23 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>PHP Test</title>
   </head>
   <body>
-    <label for="hola">Hola</label>
-    <input type="text" name="hola" id="hola" />
-    <script src="script.js"></script>
+    <form action="encuesta.php" method="post">
+      <div class="">
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" />
+      </div>
+      <div class="">
+        <label for="dream">Que quieres ser de mayor?</label>
+        <input type="text" name="dream" id="dream" />
+      </div>
+      <div class="">
+        <label for="indipented">Cuando te gustaria independizarte?</label>
+        <input type="text" name="indipendent" id="indipendent" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    
   </body>
 </html>
