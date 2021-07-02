@@ -9,7 +9,7 @@ public interface IEmployerService {
 
 	public Employers findById(Integer id); // buscar un cliente por Id
 
-	public Employers save(Employers cliente); // Inserta un cliente en la base de datos
+	public Employers save(Employers employer); // Inserta un cliente en la base de datos
 
 	public void deleteById(Integer id); // Borrara un cliente de la base de datos
 

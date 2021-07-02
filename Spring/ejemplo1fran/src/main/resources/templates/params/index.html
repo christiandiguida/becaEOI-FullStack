@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+<ul>
+<li><a th:href="@{/params/string(texto='hola Fran')}">/params/string?texto=Hola Fran</a></li>
+<li><a th:href="@{/params/string(texto='que tal el curso?')}">Segundo ejemplo</a></li>
+<li><a th:href="@{/params/mix-params(saludo='hola Fran', numero=27)}">/params/mix-params/?saludo=Hola Fran&numero=27</a></li>
+</ul>
+</body>
+</html>
