@@ -1,18 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Listar</title>
   </head>
-
   <body>
+    <h1>Usuarios</h1>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Profesion</th>
+          <th>Tratamiento</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Número de teléfono</th>
+          <th>Contraseña</th>
+          <th>Tipo de tarjeta</th>
+          <th>Número de tarjeta</th>
+          <th>Fecha de caducidad</th>
+          <th>Cuenta de Paypal</th>
+          <th>Método de pago preferido</th>
+        </tr>
+      </thead>
+      <tbody>
+         <?php
+
+          $datos = file("form.txt");
+          foreach($datos as $linea) {
+            print("<tr>");
+            $columnas = explode(",", $linea);
+            foreach($columnas as $columna) {
+              print("<td>$columna</td>");
+            }
+            print("</tr>");
+          } 
+        ?>
+      </tbody>
+    </table>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="script.js"></script>
   </body>
 </html>
